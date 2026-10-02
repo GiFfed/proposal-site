@@ -45,7 +45,7 @@ function check(){
   msg.style.color = "var(--glow)"; msg.textContent = "доступ разрешён";
   startUma();
 }else{
-    msg.style.color = "#ff6b86"; msg.textContent = "код не подошёл, проверь листочек";
+    msg.style.color = "#ff6b86"; msg.textContent = "код не подошёл, ты знаешь к кому обратиться.";
     input.classList.remove("shake"); void input.offsetWidth; input.classList.add("shake");
   }
 }
