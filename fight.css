@@ -1,0 +1,35 @@
+/* ===== Этап: файтинг ===== */
+#fight{position:fixed;inset:0;display:flex;flex-direction:column;visibility:hidden;
+  padding-top:env(safe-area-inset-top,0)}
+#fight.on{visibility:visible}
+
+#hud{display:flex;align-items:flex-start;gap:.8rem;padding:1.2rem max(1rem,4vw)}
+#hud .side{flex:1;min-width:0}
+#hud .side span{display:block;font-size:.8rem;letter-spacing:.2em;color:var(--dim);margin-bottom:.35rem}
+#hud .right span{text-align:right}
+#hud .vs{color:var(--vein);font-size:1.1rem;letter-spacing:.1em;padding-top:1.1rem}
+
+.hp{position:relative;height:18px;border:2px solid var(--dim);background:#000;transform:skewX(-14deg);overflow:hidden}
+.hp i{position:absolute;top:0;bottom:0;left:0;width:100%}
+.right .hp i{left:auto;right:0}
+.hp .trail{background:var(--bone);transition:width .8s ease .35s}
+.hp .fill{background:var(--glow);transition:width .15s}
+.right .hp .fill{background:var(--vein)}
+.hp.low .fill{background:var(--vein);animation:lowhp .5s steps(2) infinite}
+.right .hp.low .fill{animation:none}
+@keyframes lowhp{50%{opacity:.4}}
+
+.fbody{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:1rem 2rem 3rem}
+#fight .riddle{min-height:5.2em}
+#fight .ask{opacity:0;transition:opacity .6s}
+#fight .ask.show{opacity:1}
+#fight-msg{min-height:1.5em;margin-top:1rem}
+
+/* надписи ROUND / FIGHT / K.O. */
+#fbanner{position:absolute;left:0;right:0;top:38%;text-align:center;pointer-events:none;
+  font-size:clamp(2.6rem,13vw,6.5rem);letter-spacing:.08em;color:var(--bone);opacity:0;
+  text-shadow:4px 0 var(--glow),-4px 0 #ff3d6e}
+#fbanner.go{animation:banner var(--bt,1.3s) ease-out forwards}
+#fbanner.ko{color:#ff3d6e;text-shadow:4px 0 var(--bone),-4px 0 var(--vein)}
+@keyframes banner{0%{opacity:0;transform:scale(2.2)}18%{opacity:1;transform:scale(1)}80%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.92)}}

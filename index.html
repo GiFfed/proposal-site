@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <link rel="stylesheet" href="uma.css">
+  <link rel="stylesheet" href="xeno.css">
+  <link rel="stylesheet" href="fight.css">
+  <link rel="stylesheet" href="personal.css">
+  <link rel="stylesheet" href="final.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Система</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<svg id="veins" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
+  <path pathLength="1" d="M0 80 C120 90 150 200 260 210 S380 330 330 430 S420 560 520 600"/>
+  <path pathLength="1" d="M1000 40 C880 70 860 170 760 190 S640 300 700 400 S610 540 560 600"/>
+  <path pathLength="1" d="M0 420 C90 410 110 480 200 500 S260 560 240 600"/>
+  <path pathLength="1" d="M1000 460 C920 440 900 520 820 530 S770 580 790 600"/>
+</svg>
+<div id="boot" aria-live="polite"></div>
+<main id="main">
+  <h1 class="glitch" data-text="ДОСТУП ЗАКРЫТ">ДОСТУП ЗАКРЫТ</h1>
+  <p class="sub">Введи код с листочка, чтобы продолжить.</p>
+  <input id="code" type="text" autocomplete="off" aria-label="Код с листочка" placeholder="• • • •">
+  <button id="go">Открыть</button>
+  <div id="msg" role="status"></div>
+</main>
+<script src="xeno.js"></script>
+<script src="uma.js"></script>
+<script src="script.js"></script>
+<script src="fight.js"></script>
+<script src="personal.js"></script>
+<script src="final.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,26 @@
+/* ===== Этап: личное (культ сверхинтеллекта) ===== */
+#pers{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:2rem}
+#net{width:min(28rem,92vw);height:auto;margin-bottom:.8rem;overflow:visible}
+
+#net .link{stroke:var(--glow);stroke-width:1.2;opacity:.15;transition:opacity .8s}
+#net .node{fill:var(--bg);stroke:var(--glow);stroke-width:2;opacity:.35;
+  transition:opacity .6s,fill .6s,filter .6s;animation:breathe 4.5s ease-in-out infinite}
+#net .label{fill:var(--ink);font-size:12px;letter-spacing:.12em;text-anchor:middle;opacity:.45;transition:opacity .6s,fill .6s}
+@keyframes breathe{50%{opacity:.65}}
+
+#net .lit .node{opacity:1;fill:var(--glow);filter:drop-shadow(0 0 7px var(--glow));animation:none}
+#net .lit .label{opacity:1;fill:var(--bone)}
+#net.all .link{opacity:.7}
+#net .core{fill:var(--bone);opacity:0;transition:opacity 1s;filter:drop-shadow(0 0 12px var(--bone))}
+#net.all .core{opacity:1;animation:core 2.4s ease-in-out infinite}
+@keyframes core{50%{transform:scale(1.25)}}
+#net .core{transform-box:fill-box;transform-origin:center}
+
+#net.fail .node{animation:flick .6s steps(1) 1}
+@keyframes flick{0%,40%{opacity:.05}20%,60%{opacity:.5}100%{opacity:.35}}
+
+#pers .riddle{min-height:4.4em}
+#pers .ask{opacity:0;transition:opacity .6s}
+#pers .ask.show{opacity:1}
+#pers-msg{min-height:1.5em;margin-top:1rem}

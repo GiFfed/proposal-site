@@ -1,0 +1,49 @@
+/* ===== Финал: холод превращается в тепло ===== */
+@property --bg   {syntax:"<color>";inherits:true;initial-value:#060a08}
+@property --ink  {syntax:"<color>";inherits:true;initial-value:#b9d4c0}
+@property --dim  {syntax:"<color>";inherits:true;initial-value:#5f7a68}
+@property --bone {syntax:"<color>";inherits:true;initial-value:#e2d9c2}
+@property --vein {syntax:"<color>";inherits:true;initial-value:#8c2f45}
+@property --glow {syntax:"<color>";inherits:true;initial-value:#4fffb0}
+
+:root{transition:--bg 4s ease,--ink 4s ease,--dim 4s ease,--bone 4s ease,--vein 4s ease,--glow 4s ease}
+:root.warm{--bg:#1b0f08;--ink:#e9cfae;--dim:#a07f5e;--bone:#fff0da;--vein:#d98a45;--glow:#ffb96e}
+body::after{transition:opacity 3s}
+:root.warm body::after{opacity:0}
+:root.warm .alive #veins path{animation-duration:7s}
+
+/* окно с письмом */
+#fin{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:1.2rem}
+#fin .win{width:min(34rem,94vw);border:1px solid var(--dim);border-radius:14px;overflow:hidden;
+  background:linear-gradient(160deg,rgba(255,200,140,.10),rgba(255,200,140,.03));
+  box-shadow:0 0 70px rgba(255,170,90,.14);
+  opacity:0;transform:scale(.96);transition:opacity 1.4s ease,transform 1.4s ease}
+#fin .win.show{opacity:1;transform:scale(1)}
+#fin .bar{display:flex;gap:.45rem;padding:.7rem 1rem;border-bottom:1px solid rgba(255,200,140,.15)}
+#fin .bar i{width:10px;height:10px;border-radius:50%;background:var(--dim);opacity:.6}
+#fin .bar i:nth-child(2){background:var(--vein)}
+#fin .bar i:nth-child(3){background:var(--glow)}
+
+#fin .body{padding:1.6rem 1.8rem 1rem;min-height:13rem;display:flex;flex-direction:column;justify-content:center}
+#fin-text{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.02rem,2.7vw,1.22rem);
+  line-height:1.9;color:var(--bone);margin:0;transition:opacity .8s}
+#fin-text.out{opacity:0}
+#fin-text .w{opacity:0;display:inline-block;transform:translateY(5px);transition:opacity 1s,transform 1s}
+#fin-text .w.in{opacity:1;transform:none}
+
+#fin .foot{display:flex;align-items:center;justify-content:space-between;padding:.6rem 1.8rem 1.3rem;min-height:3.4rem}
+#fin .dots{display:flex;gap:.4rem}
+#fin .dots i{width:6px;height:6px;border-radius:50%;background:var(--dim);opacity:.4;transition:all .5s}
+#fin .dots i.on{background:var(--glow);opacity:1}
+#fin-next{opacity:0;pointer-events:none;transition:opacity .8s;margin:0}
+#fin-next.show{opacity:1;pointer-events:auto}
+
+/* чашка кофе на последнем экране */
+#cup{width:62px;height:62px;display:block;margin:.8rem auto 0;opacity:0;transition:opacity 2s;overflow:visible}
+#cup.show{opacity:1}
+#cup .c{fill:none;stroke:var(--bone);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+#cup .steam{fill:none;stroke:var(--glow);stroke-width:2;stroke-linecap:round;opacity:0;
+  animation:steam 3.2s ease-in-out infinite}
+#cup .s2{animation-delay:1s}
+#cup .s3{animation-delay:2s}
+@keyframes steam{0%{opacity:0;transform:translateY(6px)}40%{opacity:.7}100%{opacity:0;transform:translateY(-10px)}}

@@ -1,0 +1,33 @@
+/* ===== Этап: датчик движения (ксеноморфы/кино) ===== */
+#xeno{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:2rem;visibility:hidden}
+#xeno.on{visibility:visible}
+#radar{width:min(19rem,70vw);height:auto;margin-bottom:1rem;overflow:visible;transition:filter .6s}
+#radar .ring{fill:none;stroke:var(--glow);stroke-width:1.2;opacity:.35;transition:stroke .6s}
+#radar .cross{stroke:var(--glow);stroke-width:1;opacity:.2}
+#radar .bg{fill:var(--bg);stroke:var(--glow);stroke-width:2;opacity:.9}
+#sweep{transform-origin:150px 150px;animation:spin 3s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.blip{fill:var(--vein);opacity:0;animation:ping 3s linear infinite;transition:cx .5s,cy .5s}
+@keyframes ping{0%{opacity:1}70%{opacity:.15}100%{opacity:0}}
+#radar.caught .blip{animation:none;opacity:1;fill:var(--bone)}
+#radar.caught .ring,#radar.caught .bg{stroke:var(--vein)}
+#radar.caught #sweep{animation-play-state:paused;opacity:.2}
+
+#xeno .riddle{min-height:5.2em}
+#xeno .ask{opacity:0;transition:opacity .6s}
+#xeno .ask.show{opacity:1}
+#xeno-msg{min-height:1.5em;margin-top:1rem}
+
+/* тень, проползающая по экрану */
+#tail{position:fixed;left:0;top:0;width:100%;height:100%;z-index:7;pointer-events:none;opacity:0}
+#tail path{fill:none;stroke:#000;stroke-width:16;stroke-linecap:round;
+  stroke-dasharray:.4 1.4;stroke-dashoffset:.4;
+  filter:drop-shadow(0 0 10px var(--vein))}
+#tail.go{opacity:1}
+#tail.go path{animation:crawl 1.4s cubic-bezier(.5,0,.4,1) forwards}
+@keyframes crawl{to{stroke-dashoffset:-1}}
+
+#xflash{position:fixed;inset:0;background:var(--glow);opacity:0;pointer-events:none;z-index:7}
+#xflash.go{animation:xflash .5s steps(1)}
+@keyframes xflash{0%{opacity:.5}20%{opacity:0}35%{opacity:.35}50%,100%{opacity:0}}
